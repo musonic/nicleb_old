@@ -1,0 +1,16 @@
+---
+layout: default
+title: nicleb.com - the personal website of Nic Le Breuilly
+---
+<section class="row">  
+  <ul class="posts">
+    {% for post in site.posts %}
+        <li><a href="{{ post.url }}">{{ post.title }}</a>
+            <p>{{ post.content | truncatewords: 25 }}</p>
+          <ul>
+              <li>Tags: {{ post.tags }}</li>
+          </ul>
+        </li>
+    {% endfor %}
+  </ul>
+</section>
