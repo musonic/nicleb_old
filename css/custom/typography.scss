@@ -1,4 +1,18 @@
-h1 {
-    font-family: 'walkway_blackregular';
-    text-align: right;
+.page-header {
+    overflow: auto;
+    border-color: $graySilver;
+    
+    h1 {
+        font-family: 'mathletebulky';
+        margin-top: 0;
+    }
+}
+
+body {
+    font-family: 'lane';
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'mathletebulky';
+    color: $greenSpa;
 }

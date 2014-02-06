@@ -2,7 +2,7 @@
 layout: post
 title:  "Time To Hold Hands"
 date:   2014-02-02 15:14:00
-tags: web
+tags: Web Development-series Tutorial
 ---
 
 ### Coming along for the ride?
@@ -19,7 +19,7 @@ new skills together as we go. I am not a web professional and lots of the stuff 
 about I will be experiencing for the first time, just as I hope you will be. I WILL make mistakes
 but I hope that together we will all get through them.
 
-## Why am I doing this?
+### Why am I doing this?
 
 Ok, so let me give you a little bit of background. I'm not a web developer. I'm a professional musician
 based just outside of London, UK. Since about 2005 I've been interested in web design and development and
@@ -50,7 +50,7 @@ as slowly as I can there simply won't be time to go into absolute minute detail 
 I will try and keep a [links] page updated with links to other sites that I have found useful for covering stuff
 either in advance or stuff you want more detail on.
 
-## If you're sitting comfortably then I'll begin
+### If you're sitting comfortably then I'll begin
 
 So finally, a big thank you for joining me on this adventure. I'm really excited to write regularly and discover
 new things together. Let's go!

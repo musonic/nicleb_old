@@ -1,6 +1,6 @@
 ---
 layout: default
-title: colophon
+title: Colophon
 ---
 
 <h2>Colophon</h2>

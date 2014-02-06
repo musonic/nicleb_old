@@ -16,12 +16,13 @@ Contents
 
 // 1. Imports
 // --------------------------------------------------
+@import "custom/background.scss";
 @import "custom/fonts.scss";
-@import "custom/typography";
+@import "custom/typography.scss";
 
 // 2. Navigation
 // --------------------------------------------------
-
+@import "custom/nav.scss";
 
 
 // 3. Pages
