@@ -1,11 +1,14 @@
 ---
 layout: default
-title: nicleb.com - the personal website of Nic Le Breuilly
+title: "nicleb.com - the personal website of Nic Le Breuilly"
+published: true
 ---
+
 <section class="row col-md-10 col-md-offset-1">  
   <ul class="posts list-unstyled list-group">
     {% for post in site.posts %}
     <li class="list-group-item"><h2 class="list-group-item-heading"><a href="{{ post.url }}">{{ post.title }}</h2></a>
+      <small>Posted on: {{ post.date | date(%c) }}</small>
             <p class="list-group-item-text">{{ post.content | truncatewords: 50 }}</p>
         </li>
     {% endfor %}
