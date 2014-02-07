@@ -8,9 +8,9 @@
             <header class="page-header">
                 <nav class="col-md-9">
                     <ul class="nav nav-pills">
-                        <li class="active"><a href="#">posts</a></li>
-                        <li><a href="#">about</a></li>
-                        <li><a href="#">contact</a></li>
+                        <li><a href="/posts">posts</a></li>
+                        <li class="{% if page.title == 'about' %} active {% endif %}"><a href="{{ site_url }}/about">about</a></li>
+                        <li class="{% if page.title == 'contact' %} active {% endif %}"><a href="{{ site_url }}/contact">contact</a></li>
                     </ul>
                 </nav>
                 <h1 class="col-md-3 push-right"><a href="/">{{ site.name }}</a></h1>

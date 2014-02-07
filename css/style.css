@@ -6246,6 +6246,9 @@ body {
 hr {
   border-color: silver; }
 
+.list-group-item {
+  background: #69b8a8; }
+
 @font-face {
   font-family: 'lane';
   src: url("../font/LANENAR_-webfont.eot");
@@ -6272,8 +6275,7 @@ hr {
   border-color: silver; }
   .page-header h1 {
     font-family: 'mathletebulky';
-    margin-top: 0;
-    font-size: 3em; }
+    margin-top: 0; }
 
 body {
   font-family: 'lane'; }
@@ -6281,6 +6283,15 @@ body {
 h1, h2, h3, h4, h5, h6 {
   font-family: 'mathletebulky';
   color: #00aa8f; }
+
+.list-group-item {
+  color: whitesmoke; }
+  .list-group-item h2, .list-group-item h3 {
+    color: whitesmoke; }
+  .list-group-item a {
+    color: red; }
+    .list-group-item a:hover {
+      color: #ffb84d; }
 
 /*
 To change this license header, choose License Headers in Project Properties.
@@ -6296,7 +6307,8 @@ a {
   a:hover {
     text-decoration: none; }
 
-.nav-pills > li.active a {
-  background: #91a3b0; }
-  .nav-pills > li.active a:hover {
-    background: slategrey; }
+.nav-pills > li a:hover {
+  background: #ffb84d; }
+
+.nav-pills > li.active a, .nav-pills > li.active a:hover {
+  background: #ffb84d; }

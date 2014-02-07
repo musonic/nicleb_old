@@ -16,3 +16,19 @@ h1, h2, h3, h4, h5, h6 {
     font-family: 'mathletebulky';
     color: $greenSpa;
 }
+
+.list-group-item {
+    color: $whiteSmoke;
+    
+    h2, h3 {
+        color: $whiteSmoke;
+    }
+    
+    a {
+        color: $redBright;
+        
+        &:hover {
+            color: $amberBright;
+        }
+    }
+}
