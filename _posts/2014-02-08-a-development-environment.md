@@ -25,6 +25,10 @@ An environment is a way of seperating different stages of building a web site or
 
 Really you can define any number of environments in any way that you like. It depends on what works best for your workflow. The most common additional environment is often called the Staging environment. This is like a half-way house between development and production and is usually used for rigorous testing before the code is finally pushed up to the production server.
 
+I'm going to show you how to setup two environments: developement and staging. Production environments depend on how you want to host your work so I will leave that for a later post.
+
+
+
 
 
 
