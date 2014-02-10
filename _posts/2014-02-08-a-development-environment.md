@@ -1,5 +1,7 @@
 ---
 published: true
+layout: post
+tags: Web Development, VM, Vagrant
 ---
 
 ## Getting Started - a basic development environment
