@@ -1,5 +1,5 @@
 ---
-published: false
+published: true
 ---
 
 ## Getting Started - a basic development environment
