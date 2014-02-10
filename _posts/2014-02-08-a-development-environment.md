@@ -114,7 +114,10 @@ Now that you have your project folder you need to tell Vagrant that you want to 
 	$ vagrant init
 This will place a file called a vagrantfile inside that folder. This file is a configuration file where you tell Vagrant everything it needs to know about your setup. Open it up in a text editor or IDE of your choice and take a look. It is pre-filled with lots of comments and demo settings to give you an idea of what you can set.
 
-Our next job is to setup the VM itself.
+Our next job is to setup the VM itself. Virtual Machines are often referred to as Boxes. There are loads of diffrent boxes you can choose from [link] but for now we're going to use one of the default boxes that comes packaged with Vagrant. It is called precise32 and is a standard Linux Ubuntu 12.4 server.
+	$ vagrant box add precise32
+
+
 
 
 
