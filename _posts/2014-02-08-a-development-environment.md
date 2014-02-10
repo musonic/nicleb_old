@@ -122,8 +122,9 @@ The cool thing about this is that the same box can be used for multiple projects
 
 Next we need to tell Vagrant to use the box. Open your Vagrantfile (if it isn't already) and find the line that starts
 	config.vm.box
-You need to un-comment it by deleteing the # symbol and then change it to
+You need to un-comment it by deleteing the # symbol (if there is one) and then change it to
 	config.vm.box = "precise32"
+
     
 
 
