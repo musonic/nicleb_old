@@ -14,14 +14,17 @@ In this post I'm going to guide you through how I setup my current development e
 3. IMPORTANT - I develop on a Mac running OS X. If you use a different operating system then I cannot guarantee that what I am doing will work without some modification. I would like to think that the fundementals will be the same, but you might have to do some googling to help!
 
 <section id="aims">
+
 ### Aims
 
 By the end of this article we should have:
 1. A working development environment to enable us to write and test code.
 2. Understand the basics of a good workflow>
+
 </section>
 
 <section id="what">
+
 ### What is a development environment?
 
 An environment is a way of seperating different stages of building a web site or app or whatever. At it's most basic level you will have a developement environment and a production environment. The development environment is where you'll spend most of your time and is usually on your local computer. This is where you write your code and check that everything works before releasing it to the wild. The production environment is where your code is when your site is live. This usually involves hosting of some kind unless you're able to run your own servers. 
@@ -29,9 +32,11 @@ An environment is a way of seperating different stages of building a web site or
 Really you can define any number of environments in any way that you like. It depends on what works best for your workflow. The most common additional environment is often called the Staging environment. This is like a half-way house between development and production and is usually used for rigorous testing before the code is finally pushed up to the production server.
 
 I'm going to show you how to setup two environments: developement and staging. Production environments depend on how you want to host your work so I will leave that for a later post.
+
 </section>
 
 <section id="options">
+
 ###Options
 
 There are many ways to setup a development environment. At the most basic level you need:
@@ -65,9 +70,11 @@ A Virtual Machine is software that runs on your computer and emulates a complete
 The other huge advantage is that you can keep everything seperate from your local operating system. You can install, try out, mess up as much as you like and if you want to you can remove the whole thing with one command.
 
 So, now that I've convinved you that this is the way to go, let's get started setting things up. Remember that everything I write assumes you are using Mac OS X simply because that is what I use and I don't have access to anything else. 
+
 </section>
 
 <section id="setting-up">
+
 ###Setting up your VM
 In order to follow along you will need to use the Command Line. For some people this can be scarey. It looks very nerdy and not dissimilar to The Matrix. It is also _very_ powerful and so you are right to treat it with respect and caution. Make sure you understand each and every command you type into it before you hit enter. Soon you'll realise that with this power comes flexibility and speed and you will start to wonder why you were scared in the first place!
 On a Mac the command line is accessed by using Terminal.app. You will be able to find this in you Applications folder inside the Utilities folder. Go ahead and load it up. You will see a black screen with something like this:
