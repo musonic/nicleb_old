@@ -80,15 +80,23 @@ So, now that I've convinved you that this is the way to go, let's get started se
 ###Setting up your VM
 In order to follow along you will need to use the Command Line. For some people this can be scarey. It looks very nerdy and not dissimilar to The Matrix. It is also _very_ powerful and so you are right to treat it with respect and caution. Make sure you understand each and every command you type into it before you hit enter. Soon you'll realise that with this power comes flexibility and speed and you will start to wonder why you were scared in the first place!
 On a Mac the command line is accessed by using Terminal.app. You will be able to find this in you Applications folder inside the Utilities folder. Go ahead and load it up. You will see a black screen with something like this:
+
 	Nics-MacBook-Air:~ niclebreuilly$
+	
 This is the name of your computer followed by the name of the currently logged in user. It also tells you that you are in the users home directory. You can check this by typing:
+
 	$ ls
+
 and hitting enter.
 NB. The dollar sign ($) is used to denote a new command. You DO NOT type it again as you should see it already in your Terminal window. 
 You should see a list of all the directories contained within you home directory. "ls" is the command for list directory contents. If you type:
+
 	$ ls -ln
+	
 and hit enter you will get the same list but this time in a more verbose form with lots more information about the individual folders. "-ln" is a flag that is a combination of two options. The first is specifying a long listing format i.e. more information and the second specifies you want to see a numeric representation of user and group IDs. Try typing:
+
 	$ ls -l
+	
 and hit enter and you'll see the difference.
 Incidentally it is possible to customize the look of your Terminal window. Just go to the Preferences menu and you can select different themes for your windows. Select something you like and open a new tab or window. This will immediately make it feel more approachable.
 
@@ -99,7 +107,9 @@ In order to manage our VM we are going to use some software called Vagrant. Like
 First things first, we need to install it. Head over to http://www.vagrantup.com/downloads and select the correct download for whichever OS you are using and follow through the installation process. It is incredibly simple.
 
 Once you have the software installed, go back to your Terminal window and type:
+	
 	$ vagrant -v
+	
 (from now on I'm going to assume you know to press Enter each time you type a command to make it run). If everything has installed correctly it should print out the version of Vagrant that you now have installed on your machine.
 
 Next we need to download and install our Virtual Machine software. I will be using the free and open-source VirtualBox by Oracle. There are others available but VirtualBox is free and does everything we need it to. Head over to https://www.virtualbox.org and download and install the appropriate version.
@@ -108,30 +118,46 @@ With these two bits of software installed we're ready to setup our first project
 
 ###Create a new project
 Ok, so we first need to create a folder for our new project. You can do this through Finder or why not use the command line? For now, I'll assume you're going to add your project folder directly into your Home folder (although you can, of course, put it whereever you want!). So type the command to make a new directory:
+	
 	$ mkdir my_web_project
+	
 This will create a new directory called "my_web_project" in your Home folder. Open up a new Finder window and check!
 Now you need to navigate into that folder. This is done with:
+	
 	$ cd my_web_folder
+	
 You can use this command to navigate yourself around your file system. You can use paths to get to specific folders rather than a new command each time. If you want to go up a level you would type:
+
 	$ cd ../
+	
 If you want to start again from the user's Home directory then type:
+
 	$ cd ~/
+	
 or you can type out the full path eg.
+	
 	$ cd /Users/niclebreuilly/
 
 Now that you have your project folder you need to tell Vagrant that you want to use it. Make sure you're in your project folder.
+	
 	$ vagrant init
+	
 This will place a file called a vagrantfile inside that folder. This file is a configuration file where you tell Vagrant everything it needs to know about your setup. Open it up in a text editor or IDE of your choice and take a look. It is pre-filled with lots of comments and demo settings to give you an idea of what you can set.
 
 Our next job is to setup the VM itself. Virtual Machines are often referred to as Boxes. There are loads of diffrent boxes you can choose from [link] but for now we're going to use one of the default boxes that comes packaged with Vagrant. It is called precise32 and is a standard Linux Ubuntu 12.4 server.
+	
 	vagrant box add precise32 \ http://files.vagrantup.com/precise32.box
+	
 This downloads the box from the Vagrant website. 
 
 The cool thing about this is that the same box can be used for multiple projects. What happens is that each time you setup a new project that project actually uses a clone of the original box and so you can have as many as you like!
 
 Next we need to tell Vagrant to use the box. Open your Vagrantfile (if it isn't already) and find the line that starts
+	
 	config.vm.box
+	
 You need to un-comment it by deleteing the # symbol (if there is one) and then change it to
+
 	config.vm.box = "precise32"
 
     
