@@ -115,7 +115,16 @@ Now that you have your project folder you need to tell Vagrant that you want to 
 This will place a file called a vagrantfile inside that folder. This file is a configuration file where you tell Vagrant everything it needs to know about your setup. Open it up in a text editor or IDE of your choice and take a look. It is pre-filled with lots of comments and demo settings to give you an idea of what you can set.
 
 Our next job is to setup the VM itself. Virtual Machines are often referred to as Boxes. There are loads of diffrent boxes you can choose from [link] but for now we're going to use one of the default boxes that comes packaged with Vagrant. It is called precise32 and is a standard Linux Ubuntu 12.4 server.
-	$ vagrant box add precise32
+	vagrant box add precise32 \ http://files.vagrantup.com/precise32.box
+This downloads the box from the Vagrant website. 
+
+The cool thing about this is that the same box can be used for multiple projects. What happens is that each time you setup a new project that project actually uses a clone of the original box and so you can have as many as you like!
+
+Next we need to tell Vagrant to use the box. Open your Vagrantfile (if it isn't already) and find the line that starts
+	config.vm.box
+You need to un-comment it by deleteing the # symbol and then change it to
+	config.vm.box = "precise32"
+    
 
 
 
