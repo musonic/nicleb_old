@@ -1,5 +1,5 @@
 ---
-published: true
+published: false
 layout: post
 tags: Web Development, VM, Vagrant
 ---
