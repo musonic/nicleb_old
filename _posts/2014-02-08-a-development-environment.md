@@ -16,17 +16,12 @@ In this post I'm going to guide you through how I setup my current development e
 2. This is only a basic setup. All of the things I talk about can be taken much, much further if you have the time, inclination, mental capacity etc.
 3. IMPORTANT - I develop on a Mac running OS X. If you use a different operating system then I cannot guarantee that what I am doing will work without some modification. I would like to think that the fundementals will be the same, but you might have to do some googling to help!
 
-<section id="aims">
-
 ### Aims
 
 By the end of this article we should have:
 1. A working development environment to enable us to write and test code.
-2. Understand the basics of a good workflow>
+2. Understand the basics of a good workflow
 
-</section>
-
-<section id="what">
 
 ### What is a development environment?
 
@@ -36,9 +31,6 @@ Really you can define any number of environments in any way that you like. It de
 
 I'm going to show you how to setup two environments: developement and staging. Production environments depend on how you want to host your work so I will leave that for a later post.
 
-</section>
-
-<section id="options">
 
 ###Options
 
@@ -74,9 +66,6 @@ The other huge advantage is that you can keep everything seperate from your loca
 
 So, now that I've convinved you that this is the way to go, let's get started setting things up. Remember that everything I write assumes you are using Mac OS X simply because that is what I use and I don't have access to anything else. 
 
-</section>
-
-<section id="setting-up">
 
 ###Setting up your VM
 In order to follow along you will need to use the Command Line. For some people this can be scarey. It looks very nerdy and not dissimilar to The Matrix. It is also _very_ powerful and so you are right to treat it with respect and caution. Make sure you understand each and every command you type into it before you hit enter. Soon you'll realise that with this power comes flexibility and speed and you will start to wonder why you were scared in the first place!
@@ -161,12 +150,4 @@ You need to un-comment it by deleteing the # symbol (if there is one) and then c
 
 	config.vm.box = "precise32"
 
-    
 
-
-
-
-
-
-
-</section>
