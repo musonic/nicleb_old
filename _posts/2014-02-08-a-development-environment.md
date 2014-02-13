@@ -40,7 +40,7 @@ There are many ways to setup a development environment. At the most basic level 
 3. a scripting language
 4. a way of editing files
 
-This is often referred to as your development stack. You will also see this abbreviated to *AMP. The star could be W for windows, M for Mac or L for Linux. The A stands for Apache (the webserver), M for MySQL (the database server) and P for PHP (a scripting language).
+This is often referred to as your development stack. You will also see this abbreviated to \*AMP. The star could be W for windows, M for Mac or L for Linux. The A stands for Apache (the webserver), M for MySQL (the database server) and P for PHP (a scripting language).
 
 You can see that this doesn't sound complicated or difficult to setup. The other great news is that you can setup a really good development environment completely free (except your hardware). 
 
