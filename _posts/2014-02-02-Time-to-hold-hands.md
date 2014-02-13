@@ -1,8 +1,9 @@
 ---
 layout: post
-title:  "Time To Hold Hands"
-date:   2014-02-02 15:14:00
-tags: Web Development-series Tutorial
+title: "Let's Take A Trip"
+date: {}
+tags: "Web Development-series Tutorial"
+published: true
 ---
 
 ### Coming along for the ride?
