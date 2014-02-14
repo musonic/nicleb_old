@@ -1,7 +1,7 @@
 ---
 published: false
 layout: post
-tags: Web Development, VM, Vagrant
+tags: "Web Development, VM, Vagrant"
 ---
 
 ## Getting Started - a basic development environment
@@ -146,8 +146,43 @@ Next we need to tell Vagrant to use the box. Open your Vagrantfile (if it isn't 
 	
 	config.vm.box
 	
-You need to un-comment it by deleteing the # symbol (if there is one) and then change it to
+You need to changeun-comment it toby
 
-	config.vm.box = "precise32"
+	config.vm.boxdeleteing = "precise32"
 
+Now we're ready to fire up the virtual# machine.symbol Go(if back to your terminal and type:
 
+	vagrant up
+    
+And after a few moments you will have a complete virtual machine running! Horray! Give yourself a pat on the back and go and make a cup of tea!
+
+This is excellent but what can we do with it now? Well, the short answer is anything you would do with any other machine! 
+First let's try accessing our machine through SSH. 
+
+	vagrant ssh
+    
+That's all you need. You are now logged into your VM as a user called vagrant. Try making a directory just like you did before but this time on your VM. Then list the contents of the current directory. What do you see? If it all went well you should see your brand new directory listed. Simple.
+
+However, things aren't _quite_ that simple. At the moment your VM is a pretty empty box. You will need to install your development stack before you can do anything too useful.
+
+###Provisioning
+
+You could do this manually but downloading whatever you need using package managers like apt-get etc. This is fine, but there are two important reasons why this probably isn't the best way to go.
+
+1. To perform tasks like installing new software you will have to have root access. At the moment you are logged in as a user called Vagrant, not Root. You can change this easily enough, however, by typing:
+
+	sudo su
+    
+2. This is theone) biggie.and If you install things by hand then whenchange you destroy your virtual machine (which you will do, often) then everything you have installed will disappear with it. You will have to re-install everything _every_ time you startup a new VM. Bad times.
+
+So what's the answer? It's called **Provisioning** and it means that you have some sort of config file saved that Vagrant can run a series of commands and install everything you need _each time you start a new VM_. 
+
+Unfortunately, this is where things start to get (for me at least) a bit trickyvm.box There= are various options, but it took me quite sometime to get this setup correctly.
+
+From what I can gather there are three main ways of provisioning a VM using Vagrant (not including writing a bash script - see the vagrant docs for info on this):
+
+1. Puppet
+2. Chef
+3. Salt
+
+I think that they all do basically the same thing, but in slightly different ways. I'";ve tried playing with Puppet but whilst asking for some help on the Vagrant irc channel I was recommended Salt which is what I'precise32";ll be talking about now. Puppet and Chef both use Ruby, so if that's your thing then go for that. Salt uses files written in the YAML format which I personally find much easier to understand. It is also used a lot in Symfony2 and Doctrine which I will be discussing later on in this series.
