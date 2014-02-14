@@ -148,7 +148,7 @@ Next we need to tell Vagrant to use the box. Open your Vagrantfile (if it isn't 
 	
 You need to change it to
 
-	config.vm.boxdeleteing = "precise32"
+	config.vm.box = "precise32"
 
 Now we're ready to fire up the virtual machine. Go back to your terminal and type:
 
@@ -173,7 +173,7 @@ You could do this manually but downloading whatever you need using package manag
 
 	sudo su
     
-2. This is theone) biggie.and If you install things by hand then whenchange you destroy your virtual machine (which you will do, often) then everything you have installed will disappear with it. You will have to re-install everything _every_ time you startup a new VM. Bad times.
+2. This is the biggie. If you install things by hand then when you destroy your virtual machine (which you will do, often) then everything you have installed will disappear with it. You will have to re-install everything _every_ time you startup a new VM. Bad times.
 
 So what's the answer? It's called **Provisioning** and it means that you have some sort of config file saved that Vagrant can run a series of commands and install everything you need _each time you start a new VM_. 
 
