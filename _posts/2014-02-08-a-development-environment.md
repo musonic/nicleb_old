@@ -146,11 +146,11 @@ Next we need to tell Vagrant to use the box. Open your Vagrantfile (if it isn't 
 	
 	config.vm.box
 	
-You need to changeun-comment it toby
+You need to change it to
 
 	config.vm.boxdeleteing = "precise32"
 
-Now we're ready to fire up the virtual# machine.symbol Go(if back to your terminal and type:
+Now we're ready to fire up the virtual machine. Go back to your terminal and type:
 
 	vagrant up
     
@@ -177,7 +177,7 @@ You could do this manually but downloading whatever you need using package manag
 
 So what's the answer? It's called **Provisioning** and it means that you have some sort of config file saved that Vagrant can run a series of commands and install everything you need _each time you start a new VM_. 
 
-Unfortunately, this is where things start to get (for me at least) a bit trickyvm.box There= are various options, but it took me quite sometime to get this setup correctly.
+Unfortunately, this is where things start to get (for me at least) a bit tricky. There are various options, but it took me quite sometime to get this setup correctly.
 
 From what I can gather there are three main ways of provisioning a VM using Vagrant (not including writing a bash script - see the vagrant docs for info on this):
 
@@ -185,4 +185,4 @@ From what I can gather there are three main ways of provisioning a VM using Vagr
 2. Chef
 3. Salt
 
-I think that they all do basically the same thing, but in slightly different ways. I'";ve tried playing with Puppet but whilst asking for some help on the Vagrant irc channel I was recommended Salt which is what I'precise32";ll be talking about now. Puppet and Chef both use Ruby, so if that's your thing then go for that. Salt uses files written in the YAML format which I personally find much easier to understand. It is also used a lot in Symfony2 and Doctrine which I will be discussing later on in this series.
+I think that they all do basically the same thing, but in slightly different ways. I've tried playing with Puppet but whilst asking for some help on the Vagrant irc channel I was recommended Salt which is what I'll be talking about now. Puppet and Chef both use Ruby, so if that's your thing then go for that. Salt uses files written in the YAML format which I personally find much easier to understand. It is also used a lot in Symfony2 and Doctrine which I will be discussing later on in this series.
