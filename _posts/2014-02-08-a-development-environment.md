@@ -159,3 +159,11 @@ That's all you need. You are now logged into your VM as a user called vagrant. T
 
 However, things aren't _quite_ that simple. At the moment your VM is a pretty empty box. You will need to install your development stack before you can do anything too useful.
 
+### Next steps
+
+I was going to go all the way through getting your development environment up and running in this article, but I think that it would actually be simpler if I split things up into separate posts. I hope this will make things more easily digestible. Please let me know if you disagree!
+
+So in the next post we will explore provisioning - getting your VM ready for action!
+
+[Next Article: Add Some Salt](http://nicleb.com/2014-02-17-add-some-salt.html "Link to next article")
+
