@@ -23,3 +23,13 @@ From what I can gather there are three main ways of provisioning a VM using Vagr
 3. Salt
 
 I think that they all do basically the same thing, but in slightly different ways. I've tried playing with Puppet but whilst asking for some help on the Vagrant irc channel I was recommended Salt which is what I'll be talking about now. Puppet and Chef both use Ruby, so if that's your thing then go for that. Salt uses files written in the YAML format which I personally find much easier to understand. It is also used a lot in Symfony2 and Doctrine which I will be discussing later on in this series.
+
+### Salt Stack
+So, let's get going with Salt. Much of what follows is based on work done by [Renoir Boulanger](https://renoirboulanger.com) and his freely available github repository to build a PHP Lamp stack using Vagrant and Salt that you can find [here](https://github.com/renoirb/saltyvagrant-lampstack).
+
+First thing we need to do is to make sure we have a required plugin downloaded. Go to your project directory and type:
+	$ gem install vagrant-salt
+
+Next up, create a new folder to keep all of our SaltStack stuff.
+	$ mkdir saltstack
+	$ cd saltstack
