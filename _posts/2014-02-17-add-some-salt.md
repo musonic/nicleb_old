@@ -47,7 +47,6 @@ Open up your IDE or text editor or whatever and create a new file in the roots d
    			- installed
   		service:
     		- running
-    		- reload: True
 
 Please make sure you have indented the lines correctly because this is fundemental to how YAML works.
 
@@ -56,24 +55,30 @@ The first line is, as you would expect, the name we have given to this set of da
 The second line is the _State Declaration_. This tells us what state we are going to use. These are all listed in the docs and you can even create your own, but let's just stick with what we need for now. You can see now why the indentation is important. By indenting you can clearly see what data is a subset of something else. In our case "pkg" and "service" are indented by the same amount so they are obviously first children of "apache2". I hope this is fairly self-explanatory.
 The state declaration refers to a salt state module. This has several functions built in that do various different things. The third line in our example simply says that we want to use the "installed" function of the "pkg" state module. As you would expect this simply is a check to make sure that the package is installed.
 
-Moving on you can see we use another module called "service". Here we've specified that the apache must be running and that it should be reloaded if salt detects any changes to it's configuration.
+Moving on you can see we use another module called "service". Here we've specified that apache should be started if it is not already running.
+And there we are, you've just written your first SLS!
 
-Excellent we're nearly there! Update your file so that it now looks like this:
+The next step is to create a file called top.sls which will work as a master mapping file. Top files come into their own when you want to set up different environments or provision different minions separately. For us it will be very straightforward. Once you've created the file (in the salt directory) copy in:
 
-	apache2:
-      pkg:
-        - installed
-      service:
-        - running
-        - reload: True
-        - watch:
-          - file: /etc/apache2/apache2.conf
+  base:
+    '*':
+      - apache2
+  
+Here we have created an environment called "base". Within this environment we are using "\*" to match all minions (if you have mulitple minions you might specify specific names instead) and finally we send all minions the apache2 state. Pretty easy, huh?!
 
-    /etc/apache2/apache2.conf:
-      file.managed:
-        - source: salt://apache2.conf
-        
-Here you see we add another function to the "service" module which tells it watch a certain file for any changes. We describe where the file is in the second stanza. 
+The final step is to update our Vagrantfile. Open up your Vagrantfile and add:
+
+  # Provision using Saltstack
+  config.vm.provision :salt do |salt|
+
+    ## Minion config is set to ``file_client: local`` for masterless
+    salt.minion_config = "salt/minion"
+
+    ## Installs our example formula in "salt/roots/salt"
+    salt.run_highstate = true
+
+  end
+ 
 
 
 
