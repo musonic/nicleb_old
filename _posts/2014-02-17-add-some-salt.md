@@ -30,8 +30,8 @@ So, let's get going with Salt. Much of what follows is based on work done by [Ge
 The good news is that Vagrant (as of version 1.3) has native support for Salt. If for some reason you're running an older version either upgrade or install the vagrant-salty plugin. Google will help you out with either of these two things.
 
 Next up, create a new folder to keep all of our SaltStack stuff and a subfolder called "roots".
-	$ mkdir saltstack
-	$ cd saltstack
+	$ mkdir salt
+	$ cd salt
     $ mkdir roots
 
 Now let's think for a moment what we are trying to achieve. We need to set up Salt so that everytime we start a new VM using Vagrant we know that the new machine will be automatically provisioned with everything _exactly_ how we've specified previously. There's a lovely description about this in the [SaltStack docs](http://docs.saltstack.com/ref/states/index.htm):
@@ -66,18 +66,27 @@ The next step is to create a file called top.sls which will work as a master map
   
 Here we have created an environment called "base". Within this environment we are using "\*" to match all minions (if you have mulitple minions you might specify specific names instead) and finally we send all minions the apache2 state. Pretty easy, huh?!
 
+We just have one more file to create. In the salt directory created a blank file (make sure it isn't automatically given the .txt suffix) called "minion". This is a config file and all it needs in it is:
+
+	file_client: local
+
+By default Salt looks for files on the master server, but because we are going to utilise Vagrant's ability to sync folders.
+
 The final step is to update our Vagrantfile. Open up your Vagrantfile and add:
 
-  # Provision using Saltstack
-  config.vm.provision :salt do |salt|
-
-    ## Minion config is set to ``file_client: local`` for masterless
-    salt.minion_config = "salt/minion"
-
-    ## Installs our example formula in "salt/roots/salt"
-    salt.run_highstate = true
-
-  end
+	  ## For masterless, mount your file roots file root
+  		config.vm.synced_folder "salt/roots/", "/srv/"
+  
+    # Provision using Saltstack
+    config.vm.provision :salt do |salt|
+  
+      ## Minion config is set to ``file_client: local`` for masterless
+      salt.minion_config = "salt/minion"
+  
+      ## Installs our example formula in "salt/roots/salt"
+      salt.run_highstate = true
+  
+    end
  
 
 
