@@ -29,6 +29,52 @@ So, let's get going with Salt. Much of what follows is based on work done by [Ge
 
 The good news is that Vagrant (as of version 1.3) has native support for Salt. If for some reason you're running an older version either upgrade or install the vagrant-salty plugin. Google will help you out with either of these two things.
 
-Next up, create a new folder to keep all of our SaltStack stuff.
+Next up, create a new folder to keep all of our SaltStack stuff and a subfolder called "roots".
 	$ mkdir saltstack
 	$ cd saltstack
+    $ mkdir roots
+
+Now let's think for a moment what we are trying to achieve. We need to set up Salt so that everytime we start a new VM using Vagrant we know that the new machine will be automatically provisioned with everything _exactly_ how we've specified previously. There's a lovely description about this in the [SaltStack docs](http://docs.saltstack.com/ref/states/index.htm):
+
+> State management, also frequently called software configuration management (SCM), is a program that puts and keeps a system into a predetermined state. It installs software packages, starts or restarts services, or puts configuration files in place and watches them for changes.
+
+Salt uses files called SLS files to store states. You should think of states as simpe data lists. This is why they are written in YAML format. If you haven't come across YAML before it is a super easy way of writing organised data lists. We need to write a separate state for every component that we want our VM to be provisioned with. Let's start with a nice easy example. We're going to write the SLS file for our Apache2 installation.
+
+Open up your IDE or text editor or whatever and create a new file in the roots directory and call it "apache2.sls". Then copy this:
+
+	apache2:
+  		pkg:
+   			- installed
+  		service:
+    		- running
+    		- reload: True
+
+Please make sure you have indented the lines correctly because this is fundemental to how YAML works.
+
+The first line is, as you would expect, the name we have given to this set of data. Officially it is called an _ID Declaration_. It is important that this matches the package name that you are going to install. This is dependent on your operating system and package manager. We are using Ubuntu so if you are using something else then you need to check what the package name needs to be.
+
+The second line is the _State Declaration_. This tells us what state we are going to use. These are all listed in the docs and you can even create your own, but let's just stick with what we need for now. You can see now why the indentation is important. By indenting you can clearly see what data is a subset of something else. In our case "pkg" and "service" are indented by the same amount so they are obviously first children of "apache2". I hope this is fairly self-explanatory.
+The state declaration refers to a salt state module. This has several functions built in that do various different things. The third line in our example simply says that we want to use the "installed" function of the "pkg" state module. As you would expect this simply is a check to make sure that the package is installed.
+
+Moving on you can see we use another module called "service". Here we've specified that the apache must be running and that it should be reloaded if salt detects any changes to it's configuration.
+
+Excellent we're nearly there! Update your file so that it now looks like this:
+
+	apache2:
+      pkg:
+        - installed
+      service:
+        - running
+        - reload: True
+        - watch:
+          - file: /etc/apache2/apache2.conf
+
+    /etc/apache2/apache2.conf:
+      file.managed:
+        - source: salt://apache2.conf
+        
+Here you see we add another function to the "service" module which tells it watch a certain file for any changes. We describe where the file is in the second stanza. 
+
+
+
+
