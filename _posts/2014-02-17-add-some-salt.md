@@ -50,7 +50,7 @@ Open up your IDE or text editor or whatever and create a new file in the roots d
 
 Please make sure you have indented the lines correctly because this is fundemental to how YAML works.
 
-The first line is, as you would expect, the name we have given to this set of data. Officially it is called an _ID Declaration_. It is important that this matches the package name that you are going to install. This is dependent on your operating system and package manager. We are using Ubuntu so if you are using something else then you need to check what the package name needs to be.
+The first line is, as you would expect, the name we have given to this set of data. Officially it is called an _ID Declaration_. It is important that this matches the package name that you are going to install. This is dependent on your operating system and package manager. We are using Ubuntu and apt so if you are using something else then you need to check what the package name needs to be.
 
 The second line is the _State Declaration_. This tells us what state we are going to use. These are all listed in the docs and you can even create your own, but let's just stick with what we need for now. You can see now why the indentation is important. By indenting you can clearly see what data is a subset of something else. In our case "pkg" and "service" are indented by the same amount so they are obviously first children of "apache2". I hope this is fairly self-explanatory.
 The state declaration refers to a salt state module. This has several functions built in that do various different things. The third line in our example simply says that we want to use the "installed" function of the "pkg" state module. As you would expect this simply is a check to make sure that the package is installed.
@@ -80,15 +80,55 @@ The final step is to update our Vagrantfile. Open up your Vagrantfile and add:
     # Provision using Saltstack
     config.vm.provision :salt do |salt|
   
-      ## Minion config is set to ``file_client: local`` for masterless
       salt.minion_config = "salt/minion"
-  
-      ## Installs our example formula in "salt/roots/salt"
       salt.run_highstate = true
   
     end
- 
 
+If you Vagrant Up you will have a working Apache server on your VM. However, at the moment we can't easily test this. We need to add one more thing to our Vagrantfile in order to be able to test in the browser:
 
+	config.vm.network :forwarded_port, guest: 80, host: 4567
 
+This sets up some port forwarding so that when we go to http://localhost:4567 in our browser we are actually visiting port 80 on the VM. The resuly is that you should see a page that tells you that your Apache server is working!
 
+Time for another cup of tea!
+
+Ok, so we should now be able to use the same techniques to provision our VM with the other components of our LAMP stack - MySQL and PHP. Hopefully you're ahead of me now and have realised that to do this we need to create two more SLS files. We'll name them both after the packages we are going to install:
+First, PHP. Create a new file in the roots directory:
+
+	$ touch libapache2-mod-php5.sls
+    $ vim libapache2-mod-php5.sls
+
+(nb I am using the text editor vim but you can create this file however you choose, just remember to ignore the second line if you're not using vim!) Then add the following:
+
+	libapache2-mod-php5:
+    	pkg:
+        	- installed
+            
+This should look very familiar. Next, we will do the same for MySQL. Create a file called mysql.sls and in it should be:
+
+	mysql:
+    	pkg:
+        	- installed
+            - names:
+            	- mysql-server
+                - libapache2-mod-auth-mysql
+                - php5-mysql
+		service:
+        	- running
+            
+So, this is a little bit more complex but it shouldn't phase you. We're saying that mysql should be installed and running (just like we did with apache). The extra bit is under "names". This specifies additional packages that also need to be installed in order for this state to be successful. If they are not then Salt will install them.
+
+So now we should have a full working LAMP stack on our VM.
+Destroy your existing VM by typing:
+
+	$ vagrant destroy
+
+And build it again by using
+
+	$ vagrant up
+
+All being well your VM should boot and provision itself and you're ready to rock.
+
+Please remember that I am only scraping the surface of what Vagrant and Salt can do but I hope it is enough to get us going. Hopefully I will be able to dive a bit deeper in future articles.
+    
