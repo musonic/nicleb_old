@@ -32,7 +32,7 @@ The good news is that Vagrant (as of version 1.3) has native support for Salt. I
 Next up, create a new folder to keep all of our SaltStack stuff and a subfolder called "roots".
 	$ mkdir salt
 	$ cd salt
-    $ mkdir roots
+    	$ mkdir roots
 
 Now let's think for a moment what we are trying to achieve. We need to set up Salt so that everytime we start a new VM using Vagrant we know that the new machine will be automatically provisioned with everything _exactly_ how we've specified previously. There's a lovely description about this in the [SaltStack docs](http://docs.saltstack.com/ref/states/index.htm):
 
@@ -46,7 +46,7 @@ Open up your IDE or text editor or whatever and create a new file in the roots d
   		pkg:
    			- installed
   		service:
-    		- running
+    			- running
 
 Please make sure you have indented the lines correctly because this is fundemental to how YAML works.
 
@@ -74,14 +74,14 @@ By default Salt looks for files on the master server, but because we are going t
 
 The final step is to update our Vagrantfile. Open up your Vagrantfile and add:
 
-	  ## For masterless, mount your file roots file root
-  		config.vm.synced_folder "salt/roots/", "/srv/"
+  	## For masterless, mount your file roots file root
+  	config.vm.synced_folder "salt/roots/", "/srv/"
   
     # Provision using Saltstack
     config.vm.provision :salt do |salt|
   
-      salt.minion_config = "salt/minion"
-      salt.run_highstate = true
+      	salt.minion_config = "salt/minion"
+      	salt.run_highstate = true
   
     end
 
@@ -97,25 +97,25 @@ Ok, so we should now be able to use the same techniques to provision our VM with
 First, PHP. Create a new file in the roots directory:
 
 	$ touch libapache2-mod-php5.sls
-    $ vim libapache2-mod-php5.sls
+    	$ vim libapache2-mod-php5.sls
 
 (nb I am using the text editor vim but you can create this file however you choose, just remember to ignore the second line if you're not using vim!) Then add the following:
 
 	libapache2-mod-php5:
-    	pkg:
-        	- installed
+    		pkg:
+        		- installed
             
 This should look very familiar. Next, we will do the same for MySQL. Create a file called mysql.sls and in it should be:
 
 	mysql:
-    	pkg:
-        	- installed
-            - names:
-            	- mysql-server
-                - libapache2-mod-auth-mysql
-                - php5-mysql
+    		pkg:
+        		- installed
+        	 	- names:
+            			- mysql-server
+                		- libapache2-mod-auth-mysql
+                	- php5-mysql
 		service:
-        	- running
+        		- running
             
 So, this is a little bit more complex but it shouldn't phase you. We're saying that mysql should be installed and running (just like we did with apache). The extra bit is under "names". This specifies additional packages that also need to be installed in order for this state to be successful. If they are not then Salt will install them.
 
