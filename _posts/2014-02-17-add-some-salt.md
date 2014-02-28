@@ -95,7 +95,7 @@ This sets up some port forwarding so that when we go to http://localhost:4567 in
 
 Time for another cup of tea!
 
-Ok, so we should now be able to use the same techniques to provision our VM with the other components of our LAMP stack - MySQL and PHP. Hopefully you're ahead of me now and have realised that to do this we need to create two more SLS files. We'll name them both after the packages we are going to install:
+Ok, so we should now be able to use the same techniques to provision our VM with the other components of our LAMP stack \- MySQL and PHP. Hopefully you're ahead of me now and have realised that to do this we need to create two more SLS files. We'll name them both after the packages we are going to install:
 First, PHP. Create a new file in the roots directory:
 
 	$ touch libapache2-mod-php5.sls
@@ -133,4 +133,9 @@ And build it again by using
 All being well your VM should boot and provision itself and you're ready to rock.
 
 Please remember that I am only scraping the surface of what Vagrant and Salt can do but I hope it is enough to get us going. Hopefully I will be able to dive a bit deeper in future articles.
+
+Since writing this article I have come across some GUI (Graphical User Interface) tools that help build your config files to use with Vagrant. I haven't explored them much yet, but they look good to get you up and running quickly. Check out:
+- [Protobox](http://getprotobox.com)
+- [PuPHPet](https://puphpet.com)
+- [Rove](http://rove.io)
     
