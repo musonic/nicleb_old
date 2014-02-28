@@ -1,6 +1,7 @@
 ---
 published: true
 layout: post
+tags: Web Development, VM, Vagrant, Salt
 ---
 
 ##Provisioning
