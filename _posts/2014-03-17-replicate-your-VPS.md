@@ -20,8 +20,30 @@ The OS part is pretty straight forward. I'm using "precise64" which is a pretty 
 
 The interesting part is when we get to provisioning our LAMP stack.
 
-### Let's Provision Again
+### Let's Give It A Bash
 
 ServerGrove usefully provide publically available repositories of all the software that they install on their VPSs. The question is, how do we use them?
 
+If you read the Vagrant [docs](http://docs.vagrantup.com/v2/getting-started/provisioning.html) you will see that in their getting started tutorial they provision their first box by using a script that they call directly from their VagrantFile. This script is called a bash script and it effectively allows you to run the same commands that you would run in the command line. As such, it is really the simplest way of provisioning your VM, but it's not the most flexible. 
 
+However, we need to run some commands on our VM _before_ we start to provision it in order for us to download the software from the ServerGrove repo and use that to provision rather than the defaults.
+
+Start by creating a new file in your project root (the same level as your VagrantFile) and call it anything you like - I've called mine "bootstrap.sh".
+
+Copy and paste the following into the file, but remember to read the explanation that follows carefully so that you understand what you've just done!
+
+    #!/usr/bin/env bash
+    
+    apt-get -y install curl
+    
+    echo deb http://repos.servergrove.com/servergrove-ubuntu-precise precise main > /etc/apt/sources.list.d/servergrove.list
+    
+    curl -O http://repos.servergrove.com/servergrove-ubuntu-precise/servergrove-ubuntu-precise.gpg.key 
+    apt-key add servergrove-ubuntu-precise.gpg.key
+    
+    apt-get update
+    
+    rm -rf /var/www
+    ln -fs /vagrant /var/www
+
+The first line is important. The first two characters mark the beginning of the script. The rest of the first line is defining which shell will be used to run the commands. In our case it is Bash (Bourne Again SHell). If you would like to find out more about Unix Shells and Bash in particular take a look at [this beginners guide](http://www.tldp.org/LDP/Bash-Beginners-Guide/html/).
