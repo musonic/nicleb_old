@@ -42,8 +42,11 @@ Copy and paste the following into the file, but remember to read the explanation
     apt-key add servergrove-ubuntu-precise.gpg.key
     
     apt-get update
-    
-    rm -rf /var/www
-    ln -fs /vagrant /var/www
 
 The first line is important. The first two characters mark the beginning of the script. The rest of the first line is defining which shell will be used to run the commands. In our case it is Bash (Bourne Again SHell). If you would like to find out more about Unix Shells and Bash in particular take a look at [this beginners guide](http://www.tldp.org/LDP/Bash-Beginners-Guide/html/).
+Next we make sure that [curl](http://curl.haxx.se/docs/faq.html) is installed.
+The third command gets the contents of the remote repository and places it in a new file on our VM. This is where the ServerGrove versions of PHP, Apache etc. reside.
+Next up we have to add a [gpg key](http://www.gnupg.org) for security.
+Finally, we update apt-get so that it can now access the packages contained in the ServerGrove repository.
+
+We are now ready to provision our VM using the ServerGrove packages!
