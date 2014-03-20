@@ -1,7 +1,7 @@
 ---
 published: true
 layout: post
-tags: Web Development, VM, Vagrant, Salt
+tags: "Web Development, VM, Vagrant, Salt"
 ---
 
 ##Provisioning
@@ -121,6 +121,8 @@ This should look very familiar. Next, we will do the same for MySQL. Create a fi
             
 So, this is a little bit more complex but it shouldn't phase you. We're saying that mysql should be installed and running (just like we did with apache). The extra bit is under "names". This specifies additional packages that also need to be installed in order for this state to be successful. If they are not then Salt will install them.
 
+Finally, we just need to make sure that our top file includes our seperate files. Add them to the top file in just the same way that you did apache2.
+
 So now we should have a full working LAMP stack on our VM.
 Destroy your existing VM by typing:
 
@@ -138,4 +140,3 @@ Since writing this article I have come across some GUI (Graphical User Interface
 - [Protobox](http://getprotobox.com)
 - [PuPHPet](https://puphpet.com)
 - [Rove](http://rove.io)
-    
