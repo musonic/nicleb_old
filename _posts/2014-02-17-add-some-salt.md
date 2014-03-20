@@ -63,7 +63,7 @@ And there we are, you've just written your first SLS!
 The next step is to create a file called top.sls which will work as a master mapping file. Top files come into their own when you want to set up different environments or provision different minions separately. For us it will be very straightforward. Once you've created the file (in the salt directory) copy in:
 
 	base:
-    	'\*':
+    	'*':
     		- apache2
   
 Here we have created an environment called "base". Within this environment we are using "\*" to match all minions (if you have mulitple minions you might specify specific names instead) and finally we send all minions the apache2 state. Pretty easy, huh?!
