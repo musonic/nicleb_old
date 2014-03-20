@@ -2,6 +2,7 @@
 published: true
 layout: post
 tags: "Web Development, VM, Vagrant, Salt"
+date: 2014-03-20 18:54:00
 ---
 
 ##Provisioning
