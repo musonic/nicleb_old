@@ -61,16 +61,22 @@ At this point it's worth recapping exactly what I am trying to achieve. As well 
 
 Let's make a start by setting up PHP.
 
-The first thing we need to do is to make sure that we are installing the intl extension because this is required by Symfony2. 
+Since we are now using the ServerGrove repos we need to change our top.sls file to install their version of PHP rather than what we had before. Delete the file called libapache2-mod-php5.sls and create a new file simply called php55.sls. This will be very similar to the old file we had, but we are also going to use it to install some PHP extensions. Here is the complete file:
 
-The installation part is very straightforward, the enabling part less so! To install the extension you simply need to open up your php55.sls file and add the package name php55-intl to your list of packages. The full file should now look like this:
+	php55:
+    	pkg:
+        	- installed
+        	- pkgs:
+            	- php55
+            	- php55-apcu
+            	- php55-mod-php
+            	- libjpeg-turbo8 
+            	- php55-intl
+ 
+This should look very familiar to you now. The pkgs key lists the exact packages we want to be installed. Notice how we've include apc caching and the inlt extension that is required by Symfony2. 
 
-php55:
-    pkg:
-        - installed
-        - pkgs:
-            - php55
-            - php55-apcu
-            - php55-mod-php
-            - libjpeg-turbo8 
-            - php55-intl
+Now you can update your top.sls by simply replacing the old libapache2-mod-php5.sls file name with our new php55.sls.
+
+Simple!
+
+Well, not quite... for PHP to work properly we need to create a php.ini file that contains some custom directives. Some are required by Symfony2 and others are used to enable the extensions we've just installed.
