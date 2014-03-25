@@ -49,4 +49,10 @@ The third command gets the contents of the remote repository and places it in a 
 Next up we have to add a [gpg key](http://www.gnupg.org) for security.
 Finally, we update apt-get so that it can now access the packages contained in the ServerGrove repository.
 
-We are now ready to provision our VM using the ServerGrove packages!
+I'm hoping that I will be able to move all of this stuff into my SaltStack configuration but I haven't worked out yet how to do that. The main thing is that this works!
+
+Next is provisioning...
+
+###Salt and Symfony
+
+At this point it's worth recapping exactly what I am trying to achieve. As well as trying to replicate my ServerGrove VPS as closely as possible I am also needing to prepare my VM for using the [Symfony2 PHP framework](http://symfony.com). Symfony2 has certain [requirements](http://symfony.com/doc/current/reference/requirements.html)which take a little bit of extra configuring on most systems but the SaltStack options I'm about to explore will be useful and resuable regardless of what you are trying to do with your LAMP stack. 
