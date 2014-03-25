@@ -55,4 +55,22 @@ Next is provisioning...
 
 ###Salt and Symfony
 
-At this point it's worth recapping exactly what I am trying to achieve. As well as trying to replicate my ServerGrove VPS as closely as possible I am also needing to prepare my VM for using the [Symfony2 PHP framework](http://symfony.com). Symfony2 has certain [requirements](http://symfony.com/doc/current/reference/requirements.html)which take a little bit of extra configuring on most systems but the SaltStack options I'm about to explore will be useful and resuable regardless of what you are trying to do with your LAMP stack. 
+At this point it's worth recapping exactly what I am trying to achieve. As well as trying to replicate my ServerGrove VPS as closely as possible I am also needing to prepare my VM for using the [Symfony2 PHP framework](http://symfony.com). Symfony2 has certain [requirements](http://symfony.com/doc/current/reference/requirements.html)which take a little bit of extra configuring on most systems but the SaltStack options I'm about to explore will be useful and resuable regardless of what you are trying to do with your LAMP stack.
+
+###PHP extensions and config
+
+Let's make a start by setting up PHP.
+
+The first thing we need to do is to make sure that we are installing the intl extension because this is required by Symfony2. 
+
+The installation part is very straightforward, the enabling part less so! To install the extension you simply need to open up your php55.sls file and add the package name php55-intl to your list of packages. The full file should now look like this:
+
+php55:
+    pkg:
+        - installed
+        - pkgs:
+            - php55
+            - php55-apcu
+            - php55-mod-php
+            - libjpeg-turbo8 
+            - php55-intl
