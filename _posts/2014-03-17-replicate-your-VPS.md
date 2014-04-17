@@ -199,3 +199,7 @@ There is one final thing we must do before we can leave apache and move on. When
 
 Remember to check the [GitHub repo](https://github.com/musonic/vagrant-salt-servergrove/blob/master/salt/roots/salt/apache2-mpm-prefork.sls) if you want to make sure you've got it right.
 
+###What about MySQL?
+
+Easy. You'll be pleased to know that nothing has changed in how we've setup our MySQL state, so you can just leave that exactly how it is!
+
