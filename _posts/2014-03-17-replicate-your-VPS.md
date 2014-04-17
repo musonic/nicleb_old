@@ -135,3 +135,44 @@ This tells vagrant that we want to sync two folders. The first is our "salt/root
 It should now make sense why we need Salt to copy our Apache config files. The files are stored locally and when Vagrant runs it syncs those files into "/srv/". From there we get Salt to copy them into the right place for Apache to find them.
 
 Whilst you're getting used to file.copy why not do the same thing for the "/srv/salt/apache2/conf.d/php.conf" file? You should be able to do this using the code we used above, but if not then head over to the [github repo](https://github.com/musonic/vagrant-salt-servergrove/blob/master/salt/roots/salt/apache2-mpm-prefork.sls) and have a look how I did it.
+
+Having looked at file.copy we're now going to use another of salt's file module functions - file.managed. This function is incredibly useful because it is so versatile. We are going to use it firstly to create and manage a file to store our virtual host configuration. To do this we simply create another state in our apache2-mpm-prefork.sls file:
+
+	/etc/apache2/sites-enabled/mysite.com.conf:
+    	file.managed:
+        	- user: root
+        	- contents_pillar: virtualhosts:vhost
+        
+Again, this should all look very familiar. We tell salt the name and location of the file that we want it to manage. We then tell it to use the root user. The final line is the interesting one as it introduces a new concept. 
+
+###Pillars of Salt
+Salt uses a concept they call Pillars. Pillars are simply files that contain pretty much any sort of data that might be required by the states themselves. It is simply a nice way of keeping things organised. In the above example we have a file in our pillars directory called "virtualhosts.sls" and in that file is a YAML declaration with "vhost" as the key. Here's the contents of the file:
+
+	virtualhosts:
+    	vhost: |
+        	<VirtualHost *:80>
+            	    CustomLog /var/log/apache2/mysite.com-access.log combined
+                	DocumentRoot /var/www/web
+                	ServerName mysite.com
+                	ServerAlias localhost
+
+                	<Directory /var/www/web>
+                        AllowOverride All
+                        Order allow,deny
+                        Allow from all
+                	</Directory>
+        	</VirtualHost>
+            
+So you can see that we use a pipe (|) before we simply write out a standard apache virtualhost configuration. I won't go into this all now, but a small amount of googling will help you find information about virtualhosts. Obviously, replace "mysite" with whatever your site is called!
+
+In just the same way that salt state files are collected together in a top.sls file, so are pillars. Create a top.sls file in your pillars directory and copy the following in:
+
+	base:
+  		'*':
+    	  - data
+    	  - virtualhosts
+          
+You see? Exactly like we did with the states top file. You will see we have also requested another file, "data", which we will come to in a minute.
+
+To return to our file.managed state it should now be clear that all the "contents_pillar" option does is to take the contents of our pillar file (virtualhosts.sls) and make that the contents of the file it is managing.
+
