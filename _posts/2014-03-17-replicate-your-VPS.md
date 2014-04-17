@@ -107,3 +107,17 @@ Now we need to add some configuration. First we're going to add the main apache2
         	- makedirs: True
             
 In Salt terms this is another state. It is the state the refers to the file "/etc/apache2/apache2.conf" whereas the previous state referred to the package "apache2-mpm-prefork". Here's what is going on here:
+1. We are going to use the copy function of the Salt file module
+2. We tell it the name and location of the copied file i.e. the destination
+3. We tell it the location of the file we want to copy i.e. the source file
+4. We tell it to overwrite any files that already exist at the destination location with the same name.
+5. We tell it to create any required subdirectories if they don't already exist.
+
+When you break it down like this it is quite straightforward. However, there is still one big problem. How did we get our apache2.conf file into /srv/salt/apache2 on the VM in the first place?
+
+For this we need to return to Vagrant for a minute and open up our Vagrantfile.
+
+
+
+
+
