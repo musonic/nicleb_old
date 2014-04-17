@@ -73,10 +73,37 @@ Since we are now using the ServerGrove repos we need to change our top.sls file 
             	- libjpeg-turbo8 
             	- php55-intl
  
-This should look very familiar to you now. The pkgs key lists the exact packages we want to be installed. Notice how we've include apc caching and the inlt extension that is required by Symfony2. 
+This should look very familiar to you now. The pkgs key lists the exact packages we want to be installed. Notice how we've include apc caching and the intl extension that is required by Symfony2. 
 
 Now you can update your top.sls by simply replacing the old libapache2-mod-php5.sls file name with our new php55.sls.
 
 Simple!
 
-Well, not quite... for PHP to work properly we need to create a php.ini file that contains some custom directives. Some are required by Symfony2 and others are used to enable the extensions we've just installed.
+Well, not quite... for PHP to work properly we need to create a php.ini file that contains some custom directives. Some are required by Symfony2 and others are used to enable the extensions we've just installed. We'll come back to this in a bit. For now, let's get a bit more complex...
+
+###Apache
+
+In our previous setup we very simply used Salt to provision our VM with Apache but simply requesting the default apache2 module. This time though we're going to take things further and get more complex.
+
+Remember that our goal is to replicate the ServerGrove VPS setup on our local VM. To do this accurately we need to do more than simply use the same packages. ServerGrove will have configured their servers in certain ways that they think best serve their customers. We need to also replicate these configurations. Navigate into your VPS either using the dashboard file manager or ssh from the command line. Then navigate to /etc. In this directory there will be a directory called apache2. Download the entire apache2 directory and place it in your salt/roots/salt directory on your local machine. This directory contains all the custom configuration from your VPS that you can replicate locally.
+
+Next we need to rewrite our apache state. Create a new file in salt/roots/salt and call it apache2-mpm-prefork.sls. The first part of this file will be very familiar:
+
+	apache2-mpm-prefork:
+  		pkg:
+    		- installed
+  		service:
+    		- running
+
+We request the module "apache2-mpm-prefork" and install it and then we simply check that it is running. 
+
+Now we need to add some configuration. First we're going to add the main apache2.conf file. Here is the code to add below the previous codeblock.
+
+	/etc/apache2/apache2.conf:
+    	file.copy:
+        	- name: /etc/apache2/apache2.conf
+        	- source: /srv/salt/apache2/apache2.conf
+        	- force: True
+        	- makedirs: True
+            
+In Salt terms this is another state. It is the state the refers to the file "/etc/apache2/apache2.conf" whereas the previous state referred to the package "apache2-mpm-prefork". Here's what is going on here:
