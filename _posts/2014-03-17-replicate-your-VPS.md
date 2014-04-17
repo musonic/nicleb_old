@@ -146,7 +146,7 @@ Having looked at file.copy we're now going to use another of salt's file module 
 Again, this should all look very familiar. We tell salt the name and location of the file that we want it to manage. We then tell it to use the root user. The final line is the interesting one as it introduces a new concept. 
 
 ###Pillars of Salt
-Salt uses a concept they call Pillars. Pillars are simply files that contain pretty much any sort of data that might be required by the states themselves. It is simply a nice way of keeping things organised. In the above example we have a file in our pillars directory called "virtualhosts.sls" and in that file is a YAML declaration with "vhost" as the key. Here's the contents of the file:
+Salt uses a concept they call Pillars. Pillars are simply files that contain pretty much any sort of data that might be required by the states themselves. It is simply a nice way of keeping things organised. In the above example we have a file in our pillar directory called "virtualhosts.sls" and in that file is a YAML declaration with "vhost" as the key. Here's the contents of the file:
 
 	virtualhosts:
     	vhost: |
@@ -165,7 +165,7 @@ Salt uses a concept they call Pillars. Pillars are simply files that contain pre
             
 So you can see that we use a pipe (|) before we simply write out a standard apache virtualhost configuration. I won't go into this all now, but a small amount of googling will help you find information about virtualhosts. Obviously, replace "mysite" with whatever your site is called!
 
-In just the same way that salt state files are collected together in a top.sls file, so are pillars. Create a top.sls file in your pillars directory and copy the following in:
+In just the same way that salt state files are collected together in a top.sls file, so are pillars. Create a top.sls file in your pillar directory and copy the following in:
 
 	base:
   		'*':
@@ -175,4 +175,27 @@ In just the same way that salt state files are collected together in a top.sls f
 You see? Exactly like we did with the states top file. You will see we have also requested another file, "data", which we will come to in a minute.
 
 To return to our file.managed state it should now be clear that all the "contents_pillar" option does is to take the contents of our pillar file (virtualhosts.sls) and make that the contents of the file it is managing.
+
+We're nearly there with our apache configuration now. The only thing left is to create our php.ini file. We do this exactly like above:
+
+	/usr/local/php55/lib/php.ini:
+    	file.managed:
+        	- contents_pillar: data:custom
+            
+and the contents of "pillar/data.sls" is:
+
+	data:
+    	custom: |
+      	  extension=intl.so
+      	  short_open_tag = Off
+      	  opcache.enable = "0"
+
+you can now add any custom php configurations you like to this file.
+
+There is one final thing we must do before we can leave apache and move on. When ever we make any changes to the php.ini file we need to restart apache for the changes to take effect. In order for this to happen we need to tell salt to watch our php.ini file. If it detects any changes it will restart the service. Just underneath where you have added the "running" option, add the following:
+
+	    - watch:
+      		- file: /usr/local/php55/lib/php.ini
+
+Remember to check the [GitHub repo](https://github.com/musonic/vagrant-salt-servergrove/blob/master/salt/roots/salt/apache2-mpm-prefork.sls) if you want to make sure you've got it right.
 
