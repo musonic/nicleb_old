@@ -20,6 +20,8 @@ The OS part is pretty straight forward. I'm using "precise64" which is a pretty 
 
 The interesting part is when we get to provisioning our LAMP stack.
 
+I will try and explain everything but if you're feeling impatient I have also put up this configuration on [GitHub](https://github.com/musonic/vagrant-salt-servergrove) where you can either just look at the code or download it.
+
 ### Let's Give It A Bash
 
 ServerGrove usefully provide publically available repositories of all the software that they install on their VPSs. The question is, how do we use them?
@@ -116,8 +118,20 @@ In Salt terms this is another state. It is the state the refers to the file "/et
 When you break it down like this it is quite straightforward. However, there is still one big problem. How did we get our apache2.conf file into /srv/salt/apache2 on the VM in the first place?
 
 For this we need to return to Vagrant for a minute and open up our Vagrantfile.
+Look for the lines where we set the configuration for synced folders. Delete what is there and replace it with the following:
 
+	  ## For masterless, mount your file roots file root
+  	config.vm.synced_folder "salt/roots/", "/srv/", 
+    	:owner => "vagrant",
+    	:group => "www-data",
+    	:mount_options => ["dmode=775","fmode=664"]
+  	config.vm.synced_folder ".", "/vagrant", 
+    	:owner => "vagrant",
+    	:group => "www-data",
+    	:mount_options => ["dmode=775","fmode=664"]
+ 
+This tells vagrant that we want to sync two folders. The first is our "salt/roots" directory which will be synced with the "/src/" directory on the VM and the second is the sync our root directory with "/vagrant" on the VM. We then set some options for each. These set the directory permissions on the VM and are basic settings that allow us to read and write depending on the user and group. Remember that vagrant creates a user "vagrant" rather than using root - this is why we need to make this user the owner of these synced directories.
 
+It should now make sense why we need Salt to copy our Apache config files. The files are stored locally and when Vagrant runs it syncs those files into "/srv/". From there we get Salt to copy them into the right place for Apache to find them.
 
-
-
+Whilst you're getting used to file.copy why not do the same thing for the "/srv/salt/apache2/conf.d/php.conf" file? You should be able to do this using the code we used above, but if not then head over to the [github repo](https://github.com/musonic/vagrant-salt-servergrove/blob/master/salt/roots/salt/apache2-mpm-prefork.sls) and have a look how I did it.
