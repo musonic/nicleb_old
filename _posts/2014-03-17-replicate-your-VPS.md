@@ -208,14 +208,20 @@ Easy. You'll be pleased to know that nothing has changed in how we've setup our 
 
 ###Nearly there!
 We have now been through and made sure that all our states are how we want them. We just have one more job to do. Open up your minion file and add the line:
+
 	master: localhost
+
 This tells Salt that we are running in masterless mode. In other words, rather than having one master controlling many different minions, we just have one minion that is effectively it's own master. If you open up the [minion file](https://github.com/musonic/vagrant-salt-servergrove/blob/master/salt/minion) in the GitHub repo you will see a whole load of configuration options that are currently commented out but you could decide to use if you so chose.
 
 ###Start her up
 So now you should be set to start up your Virtual Machine. Run
+
 	$ vagrant destroy
+
 to start completely afresh and then
+
 	$ vagrant up
+
 and see your entire setup build before your eyes. 
 
 ###Any problems?
@@ -234,3 +240,7 @@ Then you can run a command called salt-call. This will allow you to debug the sa
 This will give you very detailed and verbose information about every stage of the process.
 
 For more info about salt and for finding help don't forget to check out their [docs](http://docs.saltstack.com).
+
+###Well done for getting this far!
+
+If you're still reading then well done! I hope you've found it interesting and useful. My next post will probably be on Symfony2 but check back and find out and be sure to post links to this blog and leave comments if you've found it useful.
