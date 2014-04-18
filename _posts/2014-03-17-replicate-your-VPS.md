@@ -1,6 +1,8 @@
 ---
 published: true
 date: 2014-04-18
+layout: post
+tags: "Web Development, VM, Vagrant, Salt"
 ---
 
 ## Replicate Your VPS - custom provisioning, bash scripts, permissions and more!
