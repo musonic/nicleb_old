@@ -243,4 +243,4 @@ For more info about salt and for finding help don't forget to check out their [d
 
 ###Well done for getting this far!
 
-If you're still reading then well done! I hope you've found it interesting and useful. My next post will probably be on Symfony2 but check back and find out and be sure to post links to this blog and leave comments if you've found it useful.
+If you're still reading then well done! I hope you've found it interesting and useful. My next post will probably be on Symfony2 but check back and find out and be sure to post links to this blog and leave comments if you've found it useful. Thanks for reading!
