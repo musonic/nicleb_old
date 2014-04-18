@@ -44,6 +44,9 @@ Copy and paste the following into the file, but remember to read the explanation
     apt-key add servergrove-ubuntu-precise.gpg.key
     
     apt-get update
+    
+    rm -rf /var/www
+	ln -fs /vagrant /var/www
 
 The first line is important. The first two characters mark the beginning of the script. The rest of the first line is defining which shell will be used to run the commands. In our case it is Bash (Bourne Again SHell). If you would like to find out more about Unix Shells and Bash in particular take a look at [this beginners guide](http://www.tldp.org/LDP/Bash-Beginners-Guide/html/).
 Next we make sure that [curl](http://curl.haxx.se/docs/faq.html) is installed.
@@ -57,7 +60,7 @@ Next is provisioning...
 
 ###Salt and Symfony
 
-At this point it's worth recapping exactly what I am trying to achieve. As well as trying to replicate my ServerGrove VPS as closely as possible I am also needing to prepare my VM for using the [Symfony2 PHP framework](http://symfony.com). Symfony2 has certain [requirements](http://symfony.com/doc/current/reference/requirements.html)which take a little bit of extra configuring on most systems but the SaltStack options I'm about to explore will be useful and resuable regardless of what you are trying to do with your LAMP stack.
+At this point it's worth recapping exactly what I am trying to achieve. As well as trying to replicate my ServerGrove VPS as closely as possible I am also needing to prepare my VM for using the [Symfony2 PHP framework](http://symfony.com). Symfony2 has certain [requirements](http://symfony.com/doc/current/reference/requirements.html) which take a little bit of extra configuring on most systems but the SaltStack options I'm about to explore will be useful and resuable regardless of what you are trying to do with your LAMP stack.
 
 ###PHP extensions and config
 
