@@ -203,3 +203,31 @@ Remember to check the [GitHub repo](https://github.com/musonic/vagrant-salt-serv
 
 Easy. You'll be pleased to know that nothing has changed in how we've setup our MySQL state, so you can just leave that exactly how it is!
 
+###Nearly there!
+We have now been through and made sure that all our states are how we want them. We just have one more job to do. Open up your minion file and add the line:
+	master: localhost
+This tells Salt that we are running in masterless mode. In other words, rather than having one master controlling many different minions, we just have one minion that is effectively it's own master. If you open up the [minion file](https://github.com/musonic/vagrant-salt-servergrove/blob/master/salt/minion) in the GitHub repo you will see a whole load of configuration options that are currently commented out but you could decide to use if you so chose.
+
+###Start her up
+So now you should be set to start up your Virtual Machine. Run
+	$ vagrant destroy
+to start completely afresh and then
+	$ vagrant up
+and see your entire setup build before your eyes. 
+
+###Any problems?
+Whilst getting this working I did run into a few problems and found that there were a few things that were helpful when trying to figure out what had gone wrong.
+
+The first place to look is the logs. They are located on your VM (so you need to ssh into it) at /var/logs and you should see there an apache error log and an apache access log. Open these up in nano and see what is there. They will give a big clue as to what went wrong.
+
+If you discover that there is something going wrong with your salt configuration a useful thing to do, rather than re-provisioning using vagrant every time, is to run salt directly on the vm from the command line. Firstly ssh into your vm.
+
+	$ vagrant ssh
+
+Then you can run a command called salt-call. This will allow you to debug the salt.highstate function which is what runs all your salt states.
+
+	$ salt-call -l debug state.highstate
+
+This will give you very detailed and verbose information about every stage of the process.
+
+For more info about salt and for finding help don't forget to check out their [docs](http://docs.saltstack.com).
