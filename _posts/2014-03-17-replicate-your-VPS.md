@@ -1,5 +1,6 @@
 ---
-published: false
+published: true
+date: 2014-04-18
 ---
 
 ## Replicate Your VPS - custom provisioning, bash scripts, permissions and more!
