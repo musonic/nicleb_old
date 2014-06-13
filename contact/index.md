@@ -6,7 +6,7 @@ published: true
 
 ##How To Get In Touch
 
-nic@nicleb.com
+[nic@nicleb.com](mailto:nic@nicleb.com)
 
 or
 
