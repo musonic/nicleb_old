@@ -1,7 +1,6 @@
 ---
 layout: post
 title: "Let's Take A Trip"
-date: {}
 tags: "Web Development-series Tutorial"
 published: true
 ---
