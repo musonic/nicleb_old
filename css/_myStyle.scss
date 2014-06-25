@@ -214,6 +214,20 @@ a {
 		color: #ffcc44;
 	}
 
+	pre {
+		border: 1px solid #ffcc44;
+		border-left-width: 10px;
+		padding: 1em;
+		border-radius: 1em;
+		overflow: auto;
+
+		code {
+			font-family: Consolas, "Lucida Console", Monaco, monospace;
+			color: #667a85;
+			font-size: 0.666666667em;
+		}
+	}
+
 	@media screen and (min-width: $screenMed) {
 
 		.about-intro, img {
