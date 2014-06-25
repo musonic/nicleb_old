@@ -3,6 +3,7 @@ published: true
 layout: post
 tags: "Web Development, VM, Vagrant, Salt"
 date: 2014-03-20 18:54:00
+excerpt: "Provisioning. You could do this manually but downloading whatever you need using package managers like apt-get etc. This is fine, but there are two important reasons why this probably isn't the best way to go."
 ---
 
 ##Provisioning

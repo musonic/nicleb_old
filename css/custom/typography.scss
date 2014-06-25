@@ -1,32 +1,76 @@
+body {
+    font-family: 'Raleway', serif;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 1em;
+}
+
 .page-header {
-    overflow: auto;
-    border-color: $graySilver;
-    
+    border: none;
+    overflow: hidden;
+    margin: 0px;
+    padding: 0px;
+
     h1 {
-        font-family: 'mathletebulky';
-        margin-top: 0;
+        font-family: 'Courgette', cursive;
+        margin: 0;
+        text-shadow: 0 -2px 2px #12374D;
+        line-height: 1.5em;
+        font-size: 5em;
+        text-align: center;
+        @include transform(rotate(-5deg));
     }
 }
 
-body {
-    font-family: 'lane';
+h2, h3, h4, h5, h6 {
+    font-family: 'Kameron', sans-serif;
+    font-weight: 700;
+    color: #FFCC44;
+
 }
 
-h1, h2, h3, h4, h5, h6 {
-    font-family: 'mathletebulky';
-    color: $greenSpa;
+.intro {
+    font-family: Raleway, sans-serif;
+    font-size: 4em;
+    color: #e7e7e7;
+    line-height: 1.5em;
+    text-align: center;
+}
+
+h2 {
+    font-size: 3em;
+    margin-bottom: 1em;
+}
+
+p {
+    font-family: Kameron, serif;
+    font-weight: 400;
+    line-height: 1.5em;
+    font-size: 1.5em;
+    text-align: left;
+    color: #0A557E;
+}
+
+.contact h2 {
+    text-align: right;
+    color: #fff;
+}
+
+.footnotes p {
+    font-size: 0.875em;
+    color: #696969;
 }
 
 .list-group-item {
     color: $whiteSmoke;
-    
+
     h2, h3 {
         color: $whiteSmoke;
     }
-    
+
     a {
         color: $redBright;
-        
+
         &:hover {
             color: $amberBright;
         }

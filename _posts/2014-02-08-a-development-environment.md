@@ -2,6 +2,7 @@
 published: true
 layout: post
 tags: "Web Development, VM, Vagrant"
+excerpt: "So, before we can do any exciting coding it's good to get yourself setup and feeling comfortable. It's a bit like cooking a new recipe and making sure you've got all of your ingredients out on the counter before you start rather than scrabbling around at the back of a cupboard once you're halfway through."
 ---
 
 ## Getting Started - a basic development environment

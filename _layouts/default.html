@@ -1,24 +1,29 @@
 {% include header.html %}
 
-    <body>
+    <body class="default">
         <!--[if lt IE 7]>
             <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
         <![endif]-->
-        <div class="container">
-            <header class="page-header">
-              <h1 class="col-md-9 pull-left"><a href="/">{{ site.name }}</a><small> Web development for people like me</small></h1>
-                <nav class="col-md-3 push-right">
-                    <ul class="nav nav-pills">
+        <div>
+            <section class=" banner">
+                <header>
+                  <h1><a href="/">{{ site.name }}</a></h1>
+                </header>
+                <div>
+                <p class="intro">I make engaging websites for interesting people.</p>
+                </div>
+                <nav>
+                    <ul class="nav">
                         <li class="{% if page.title == 'about' %} active {% endif %}"><a href="{{ site_url }}/about">about</a></li>
-                        <li class="{% if page.title == 'contact' %} active {% endif %}"><a href="{{ site_url }}/contact">contact</a></li>
+                        <li class="contact {% if page.title == 'contact' %} active {% endif %}"><a href="{{ site_url }}/contact">contact</a></li>
+                        <li class="{% if page.title == 'writing' %} active {% endif %}"><a href="{{ site_url }}/writing">writing</a></li>
+                    </ul>
+                    <ul class="social">
+                        <li><a href="http://twitter.com/musonic" class="twitter"><i class="fa fa-twitter"></i> @musonic</a></li>
+                        <li><a href="http://github.com/musonic" class="github"><i class="fa fa-github"></i> github/musonic</a></li>
                     </ul>
                 </nav>
-            </header>
-        </div>
-
-        <div class="container">
-        <header class="well-lg"><p class="lead">I'm available for hire. Please <a hred="{{site_url}}/contact">contact me</a> to discuss your requirements.</p></header>
-            {{ content }}
+            <section>
         </div>
 
 {% include footer.html %}

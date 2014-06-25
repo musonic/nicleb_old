@@ -3,20 +3,27 @@ To change this license header, choose License Headers in Project Properties.
 To change this template file, choose Tools | Templates
 and open the template in the editor.
 */
-/* 
+/*
     Created on : 04-Feb-2014, 16:46:28
     Author     : niclebreuilly
 */
 a {
-    color: $greenTeal;
+    color: #2a6596;
 
     &:hover {
         text-decoration: none;
     }
 }
 
+.contact a {
+
+        &:hover {
+            text-decoration: underline;
+        }
+}
+
 .nav-pills>li {
-    
+
     a:hover {
         background: $amberBright;
     }

@@ -3,6 +3,9 @@ layout: post
 title: "Let's Take A Trip"
 tags: "Web Development-series Tutorial"
 published: true
+excerpt: "Here we go with the first post in my new series all about web development for non-developers. 
+I hope to post as regularly as I can manage and to cover as many topics as I can going into
+as much depth as I think is useful at the time."
 ---
 
 ### Coming along for the ride?

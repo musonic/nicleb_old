@@ -1,0 +1,23 @@
+{% include header.html %}
+
+    <body class="default main">
+        <!--[if lt IE 7]>
+            <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+        <![endif]-->
+        <div>
+            <section class="banner">
+                <header>
+                  <h1><a href="/">{{ site.name }}</a></h1>
+                </header>
+                <nav>
+                    <ul class="nav">
+                        <li class="{% if page.title == 'about' %} active {% endif %}"><a href="{{ site_url }}/about">about</a></li>
+                        <li class="contact {% if page.title == 'contact' %} active {% endif %}"><a href="{{ site_url }}/contact">contact</a></li>
+                        <li class="{% if page.title == 'writing' %} active {% endif %}"><a href="{{ site_url }}/writing">writing</a></li>
+                    </ul>
+                </nav>
+            </section>
+            <section class="main-content">{{ content }}</section>
+        </div>
+
+{% include footer.html %}

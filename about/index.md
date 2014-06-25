@@ -1,15 +1,37 @@
 ---
-layout: default
+layout: main
 title: About
 published: true
+footerNav: true
 ---
 
-##A Little Bit About Me...
+##Hi, I'm Nic.
 
-Working from a garden studio in lovely Hitchin about an hour from London, UK, I am a self-taught web developer and designer. I mostly work on my own development projects using a combination of the core web technologies (HTML, CSS, JS) along with PHP (especially the Symfony 2 framework) and Sencha Touch for mobile apps.
+<div class="content-wrapper" markdown="1">
+<section class="about-intro" markdown="1">
+That's me over there, with my son, Oscar.
 
-I have recently decided to start taking on a small number of clients. If you require a new site, an overhaul of an existing site or anything else web related then please [get in touch](nicleb.com/contact).
+I work from my garden studio at my home in leafy Hitchin, UK. I live with my wife, Juliet, and
+my two children, Oscar and Emilie.
 
-My time is currently split between web development and being a professional musician working in the theatres of London's West End. I find the combination of my two passions not only keeps me busy but each influences how I work with the other.
+Why do you need to know this? Well, if we're going to work together then we need to get on. Think of
+this bit as the smalltalk at a cocktail party.
+</section>
+{::nomarkdown}
+<img src="/assets/img/me-sm.jpg"
+	srcset="me-lrg 1600w,
+			me-med 640w,
+			me-sm 320w"
+	sizes="100%"
+	alt="Me and Oscar" />
+{:/}
+</div>
 
-When I'm not working you will find me playing with my two children, reading books or watching property programs on TV.
+<section class="about-end" markdown="1">
+I am a passionate believer that good design is the best way to solve a problem whether that is archetectural,
+aesthetic or practical. I am an advocate for web standards and progressive enhancement. I like my websites to be
+accessible to anyone. I will always try and use the latest technologies available but only if they are the most
+suitable for the project. I try not to get swept along with trends and fads - good design is simple and timeless.
+
+If you share my passion for good design and think we could work together please [get in touch](http://nicleb.com/contact).
+</section>

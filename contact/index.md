@@ -1,13 +1,14 @@
 ---
-layout: default
+layout: main
 title: Contact
 published: true
+footerNav: true
 ---
 
-##How To Get In Touch
+##Get In Touch
 
 [nic@nicleb.com](mailto:nic@nicleb.com)
 
 or
 
-@musonic on Twitter
+[@musonic](http://twitter.com/musonic) on Twitter
