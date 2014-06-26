@@ -21,54 +21,50 @@ a {
 .default {
 	.banner {
 		background: #3583ad;
-		padding: 3em 0;
+		padding: 0 10%;
+		padding-bottom: 2em;
 		border-bottom: 1px solid #12374d;
 
 		header {
 	    	overflow: hidden;
 
 		    h1 {
-		        font-family: 'Courgette', sans-serif;
+		        font-family: 'Courgette', cursive;
 		        margin: 0;
-		        padding-right: 10%;
-		        text-shadow: 0 -2px 2px #12374D;
-		        line-height: 1.5em;
-		        font-size: 5em;
-		        text-align: center;
-		        @include transform(rotate(-5deg));
+		        text-shadow: 0 -1px 1px #12374D;
+		        line-height: 3em;
+		        font-size: 1em;
+		        text-align: right;
 
 		        @media screen and (min-width: $screenMed) {
-					line-height: 2.142857143em;
-		        	font-size: 7em;
-		        	text-align: right;
+		        	font-size: 3em;
 		        }
 
 				a {
 		        	color: #ffcc44;
+
 		        }
 		    }
 		}
 
 		.intro {
-				font-family: 'Courgette', sans-serif;
-				padding: 0.2666em 10%;
-			    font-size: 3em;
+				font-family: 'Lato', cursive;
+				padding: 0;
+				padding-bottom: 1.333333333em;
+			    font-size: 1.5em;
 			    font-weight: normal;
 			    color: #e7e7e7;
-			    line-height: 1.5em;
-			    text-align: left;
+			    line-height: 1.333333333em;
+			    text-align: center;
 			    margin: 0;
 
 			    @media screen and (min-width: $screenMed) {
-					font-size: 4em;
-					line-height: 1.5em;
-					padding: 0 10%;
+					font-size: 4.5em;
+					padding: 0 10% 0.666666667em 10%;
 			    }
 		}
 
 		nav {
-			width: 60%;
-			margin: 0 auto;
 			position: relative;
 			overflow: auto;
 
@@ -77,31 +73,35 @@ a {
 				overflow: auto;
 				margin: 0;
 				padding: 0;
+				padding-bottom: 2em;
 
 				li {
 					text-align: center;
-					font-size: 1.5em;
-					line-height: 2em;
+					font-size: 1.25em;
+					line-height: 1.6em;
+					float: left;
+					width: 33.3333333%;
 
 					@media screen and (min-width: $screenMed) {
-						float: left;
-						width: 33.3333333%;
-						font-size: 2em;
-						line-height: 5em;
+
+						font-size: 3em;
+						line-height: 1.666666667em;
 					}
 
 					&.contact {
 
-						font-size: 2em;
-						line-height: 1.5em;
+						font-size: 1.5em;
+						line-height: 1.33333em;
 
 						@media screen and (min-width: $screenMed) {
-							font-size: 3em;
-							line-height: 3.333333333em;
+							font-size: 3.5em;
+							line-height: 1.428571429em;
 						}
 					}
 
 					a {
+						display: block;
+
 						&:link, &:visited {
 							color: #0A557E;
 							text-shadow: 0px 1px 1px #1293d9;
@@ -111,7 +111,6 @@ a {
 						&:hover, &:active {
 							color: #ffcc44;
 							font-size: 1.1em;
-							// line-height: 3.333333333em;
 						}
 					}
 				}
@@ -125,13 +124,15 @@ a {
 
 				li {
 					text-align: center;
-					font-size: 1.25em;
-					line-height: 1.6em;
+					font-size: 1em;
+					line-height: 1.5em;
 					width: 100%;
 
 					@media screen and (min-width: $screenMed) {
 						float: left;
 						width: 50%;
+						font-size: 2em;
+						line-height: 1em;
 					}
 
 						a {
@@ -161,30 +162,57 @@ a {
 .main .banner {
 
 	overflow: auto;
+	padding-bottom: 0.125em; // this is 2px! There are 14px under the nav (based on line height) so this extra keeps vertical rhythm
+
+	header h1 {
+		line-height: 1em;
+		padding-top: 1em;
+		padding-bottom: 0.125em;
+	}
+
+	nav ul.nav {
+		padding: 0;
+
+		li {
+			line-height: 2.4em;
+
+			&.contact {
+				line-height: 2em;
+			}
+		}
+	}
 
 	@media screen and (min-width: $screenMed) {
+
+	padding-left: 5%;
+	padding-right: 5%;
+
 		header, nav {
 			width: 50%;
 			float: right;
 		}
-	}
 
-	header h1 {
-		font-size: 3em;
-		line-height: 2em;
-	}
+		header h1 {
+			font-size: 2em;
+			padding: 0.5em 0;
+		}
 
-	nav ul.nav li {
-		line-height: 3em;
+		nav ul.nav {
+			li {
+				font-size: 1.5em;
+				line-height: 2.666666667em;
 
-		&.contact {
-			line-height: 2em;
+				&.contact {
+					font-size: 1.75em;
+					line-height: 2.285714286em;
+				}
+			}
 		}
 	}
 }
 
 .main .main-content {
-	padding: 2em 10%;
+	padding: 1.333333333em 10%;
 	font-size: 1.5em;
 	line-height: 1.333333333em;
 	overflow: auto;
@@ -194,8 +222,6 @@ a {
 	h2 {
 		margin: 0;
 		padding: 0;
-		font-size: 2em;
-		line-height: 2em;
 		color: #3583ad;
 		font-family: 'Courgette', cursive;
 	}
@@ -246,6 +272,7 @@ a {
 		list-style-type: none;
 		margin: 0;
 		padding: 0;
+		padding-top: 1.333333333em;
 
 		li {
 			padding: 1em 10%;
@@ -257,8 +284,9 @@ a {
 		}
 
 		h3 {
-			font-size: 1.333333333em;
+			font-size: 1.25em;
 			line-height: 1em;
+			text-align: center;
 			margin: 0;
 			padding: 0;
 
@@ -302,5 +330,6 @@ a {
 		list-style-type: none;
 		text-align: center;
 		margin: 0;
+		padding: 0;
 	}
 }
