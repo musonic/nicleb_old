@@ -1,3 +1,21 @@
+@include keyframes(menuDrop) {
+	from {
+		top: -500px;
+	}
+	to {
+		top: 0;
+	}
+}
+
+@include keyframes(slideLeft) {
+	from {
+		margin-left: -750px;
+	}
+	to {
+		margin-left: 0;
+	}
+}
+
 html {
     height: 100%;
     background: #fff;
@@ -20,82 +38,105 @@ a {
 
 .default {
 	.banner {
+		overflow: hidden;
 		background: #3583ad;
-		padding: 0 10%;
 		padding-bottom: 2em;
 		border-bottom: 1px solid #12374d;
+		@include background-image(linear-gradient(rgba(53, 131, 173, 0.6), rgba(53, 131, 173, 0.6)), radial-gradient(tint(#ffcc44,60%), #3583ad, $shape-size: 'farthest-corner'));
 
 		header {
-	    	overflow: hidden;
+	    	width: 120%;
 
 		    h1 {
-		        font-family: 'Courgette', cursive;
+		        font-family: 'Comfortaa', sans-serif;
+		        font-weight: 300;
 		        margin: 0;
-		        text-shadow: 0 -1px 1px #12374D;
-		        line-height: 3em;
-		        font-size: 1em;
-		        text-align: right;
+		        margin-top: -1.7%;
+		        margin-left: -10%;
+		        padding-bottom: 0.771938775em;
+		        line-height: 0.7em;
+		        font-size: 7em;
+		        text-align: center;
+		        width: 100%;
+		        letter-spacing: -0.14em;
 
 		        @media screen and (min-width: $screenMed) {
-		        	font-size: 3em;
+		        	font-size: 8.6em;
+		        	padding-bottom: 0.717340539em;
+		        	line-height: 0.45em;
+					margin-top: 0.7%;
+					margin-left: -1.75%;
+					text-align: left;
 		        }
 
 				a {
 		        	color: #ffcc44;
-
 		        }
 		    }
 		}
 
 		.intro {
-				font-family: 'Lato', cursive;
-				padding: 0;
-				padding-bottom: 1.333333333em;
-			    font-size: 1.5em;
+				font-family: 'Six Caps', serif;
+				padding: 0 5%;
+				padding-top: 0.333333333em;
+				padding-bottom: 0.666666666em;
+			    font-size: 6em;
 			    font-weight: normal;
 			    color: #e7e7e7;
-			    line-height: 1.333333333em;
+			    line-height: 1em;
 			    text-align: center;
 			    margin: 0;
+			    letter-spacing: 0.025em;
 
 			    @media screen and (min-width: $screenMed) {
-					font-size: 4.5em;
-					padding: 0 10% 0.666666667em 10%;
+					font-size: 10em;
+					padding: 0.75em 10% 0.5em 10%;
 			    }
 		}
 
 		nav {
 			position: relative;
-			overflow: auto;
+			overflow: visible;
+			padding-bottom: 2.5em;
 
 			ul.nav {
 				list-style-type: none;
 				overflow: auto;
 				margin: 0;
 				padding: 0;
-				padding-bottom: 2em;
+				background: rgba(45, 46, 47, 0.05);
+				border: 1px solid rgba(45, 46, 47, 0.1);
+				border-left: 0;
+				border-right: 0;
+				@include animation(menuDrop 7s);
+				position: absolute;
+				width: 100%;
 
 				li {
 					text-align: center;
 					font-size: 1.25em;
-					line-height: 1.6em;
+					line-height: 2.4em;
 					float: left;
 					width: 33.3333333%;
 
 					@media screen and (min-width: $screenMed) {
 
 						font-size: 3em;
-						line-height: 1.666666667em;
+						line-height: 2.5em;
+					}
+
+					&.about {
+						@include animation(slideLeft 10s);
 					}
 
 					&.contact {
 
 						font-size: 1.5em;
-						line-height: 1.33333em;
+						line-height: 2em;
 
 						@media screen and (min-width: $screenMed) {
 							font-size: 3.5em;
-							line-height: 1.428571429em;
+							line-height: 2.142857143em;
 						}
 					}
 
@@ -149,13 +190,20 @@ a {
 }
 
 .footnotes  {
-    color: #696969;
-    font-size: 0.875em;
-	padding: 2.285714286em 10%;
-	line-height: 1.714285714em;
+    color: #513b01;
+	padding: 2em 10%;
+	font-size: 1.25em;
+	line-height: 1.6em;
+	background: #ffcc44;
+	@include linear-gradient(#ffcc44, tint(#ffcc44, 10%));
 
     a {
     	color: #0A557E;
+    }
+
+    img {
+    	display: block;
+    	margin: 0 auto;
     }
 }
 
