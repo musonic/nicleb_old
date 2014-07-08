@@ -214,6 +214,10 @@ a {
 
 	nav {
 		padding-bottom: 1.25 * 2.4em;
+
+		ul.nav {
+			@include animation(none);
+		}
 	}
 
 	@media screen and (min-width: $screenMed) {
