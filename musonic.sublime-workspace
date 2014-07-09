@@ -4,6 +4,10 @@
 		"selected_items":
 		[
 			[
+				"n",
+				"none"
+			],
+			[
 				"ba",
 				"background"
 			],
@@ -305,7 +309,15 @@
 	"file_history":
 	[
 		"/Users/niclebreuilly/Jekyll-Projects/musonic.github.io/css/_myStyle.scss",
+		"/Users/niclebreuilly/Jekyll-Projects/musonic.github.io/css/style.scss",
+		"/Users/niclebreuilly/Jekyll-Projects/musonic.github.io/_site/2014/02/02/Lets-Take-A-Trip.html",
+		"/Users/niclebreuilly/Jekyll-Projects/musonic.github.io/.sass-cache/6ec8864b994d10cdb209af59ec61c9715c8211e3/_limes.scssc",
+		"/Users/niclebreuilly/Jekyll-Projects/musonic.github.io/.sass-cache/08625fc960a689a214d2a4954a39b5c36eb9c0ff/_scaffolding.scssc",
+		"/Users/niclebreuilly/Jekyll-Projects/musonic.github.io/_site/colophon/index.html",
 		"/Users/niclebreuilly/Jekyll-Projects/musonic.github.io/css/custom/_mq.scss",
+		"/Users/niclebreuilly/Jekyll-Projects/musonic.github.io/_plugins/svg_mime_type.rb",
+		"/Users/niclebreuilly/Jekyll-Projects/musonic.github.io/css/style.css",
+		"/Users/niclebreuilly/Jekyll-Projects/musonic.github.io/_site/2014/04/18/replicate-your-VPS.html",
 		"/Users/niclebreuilly/Jekyll-Projects/musonic.github.io/_includes/footer.html",
 		"/Users/niclebreuilly/Jekyll-Projects/musonic.github.io/_layouts/main.html",
 		"/Users/niclebreuilly/Jekyll-Projects/musonic.github.io/_includes/header.html",
@@ -319,8 +331,6 @@
 		"/Users/niclebreuilly/Jekyll-Projects/musonic.github.io/index.html",
 		"/Users/niclebreuilly/Library/Application Support/Sublime Text 3/Packages/User/Preferences.sublime-settings",
 		"/Users/niclebreuilly/Jekyll-Projects/musonic.github.io/colophon/index.md",
-		"/Users/niclebreuilly/Jekyll-Projects/musonic.github.io/css/style.scss",
-		"/Users/niclebreuilly/Jekyll-Projects/musonic.github.io/css/style.css",
 		"/Users/niclebreuilly/Jekyll-Projects/musonic.github.io/_layouts/post.html",
 		"/Users/niclebreuilly/Jekyll-Projects/musonic.github.io/about/index.md",
 		"/Users/niclebreuilly/Jekyll-Projects/musonic.github.io/node_modules/grunt/node_modules/nopt/node_modules/abbrev/lib/abbrev.js",
@@ -356,7 +366,6 @@
 		"/Users/niclebreuilly/Jekyll-Projects/musonic.github.io/node_modules/grunt/node_modules/js-yaml/examples/sample_document.js",
 		"/Users/niclebreuilly/Jekyll-Projects/musonic.github.io/_site/2014/03/20/add-some-salt.html",
 		"/Users/niclebreuilly/Jekyll-Projects/musonic.github.io/node_modules/grunt/node_modules/js-yaml/lib/js-yaml.js",
-		"/Users/niclebreuilly/Jekyll-Projects/musonic.github.io/_site/2014/02/02/Lets-Take-A-Trip.html",
 		"/Users/niclebreuilly/Jekyll-Projects/musonic.github.io/font/LANENAR_-webfont.svg",
 		"/Users/niclebreuilly/Jekyll-Projects/musonic.github.io/node_modules/grunt/node_modules/js-yaml/node_modules/argparse/lib/action_container.js",
 		"/Users/niclebreuilly/Web_Projects/copyce/config.codekit",
@@ -523,6 +532,10 @@
 		"height": 0.0,
 		"selected_items":
 		[
+			[
+				"mys",
+				"css/_myStyle.scss"
+			],
 			[
 				"mq",
 				"css/custom/_mq.scss"

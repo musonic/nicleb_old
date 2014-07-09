@@ -288,10 +288,11 @@ a {
 		li {
 			padding: 1em 10%;
 			margin-bottom: 2em;
-			border-radius: 2em;
-			border: 0.25em solid #ffcc44;
-			background: #3583ad;
 			color: #fff;
+			background: rgba(45, 46, 47, 0.05);
+			border: 1px solid rgba(45, 46, 47, 0.1);
+			border-left: 0;
+			border-right: 0;
 		}
 
 		h3 {
