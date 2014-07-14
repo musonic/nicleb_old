@@ -1,17 +1,17 @@
 ---
 layout: main
-title: About
+title: Writing
 published: true
 footerNav: true
 ---
 
 <section class="content-wrapper">
-  <ul class="posts">
-    {% for post in site.posts %}
-    <li class=""><h3 class=""><a href="{{ post.url }}">{{ post.title }}</h3></a>
-      <small>Posted on: {{ post.date | date: "%d %b %Y" }}</small>
-            <p>{{ post.excerpt }}</p>
-        </li>
+<h2>My Writing</h2>
+<p>I love writing and I find it an amazing way to clarify my thoughts. I don't write as often as I would like, but here you'll find
+articles about a ll sorts of things.</p>
+  <ul class="categories">
+    {% for category in site.categories %}
+    <li class=""><h3 class=""><a href="{{ site.url }}/writing/{{ category | first }}">{{ category | first | replace: 'webdev', 'Web Development ' | replace: 'books', 'Book Reviews' }}</h3></a></li>
     {% endfor %}
   </ul>
 </section>

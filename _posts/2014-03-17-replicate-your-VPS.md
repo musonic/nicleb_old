@@ -2,6 +2,7 @@
 published: true
 date: 2014-04-18
 layout: post
+category: webdev
 tags: "Web Development, VM, Vagrant, Salt"
 excerpt: "In the last post we looked at how to setup and provision your VM using Vagrant and Salt. In this post I'm going to dive a little deeper (only a little) and walk through how I have setup my VM to duplicate the VPS (Virtual Private Server) that I will be using."
 ---

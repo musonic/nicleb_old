@@ -1,6 +1,7 @@
 ---
 layout: post
 title: "Let's Take A Trip"
+category: Webdev
 tags: "Web Development-series Tutorial"
 published: true
 excerpt: "Here we go with the first post in my new series all about web development for non-developers. 
