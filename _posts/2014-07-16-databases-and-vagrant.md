@@ -3,7 +3,7 @@ published: true
 layout: post
 category: webdev
 tags: "Web Development, VM, Vagrant, Databases"
-date: 2014-007-16 11:24:00
+date: 2014-07-16 11:24:00
 excerpt: "A common problem people face when using a VM for development is how to connect to a database that is hosted on the VM but from an application running on their host machine. I scratched my head about this for a while but infact the solution is pretty simple. Here is is."
 ---
 

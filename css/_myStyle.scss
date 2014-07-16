@@ -246,6 +246,10 @@ a {
 		padding: 0 10%;
 	}
 
+	.post img {
+		border-radius: 0;
+	}
+
 	a, h2 {
 		color: #ffcc44;
 	}
@@ -267,11 +271,15 @@ a {
 
 	@media screen and (min-width: $screenMed) {
 
-		.about-intro, img {
+	.about-intro, img {
 			width: 40%;
 			float: left;
 			padding: 0 5%;
 		}
+	}
+
+	.post img {
+		float: none;
 	}
 
 	.about-end {
