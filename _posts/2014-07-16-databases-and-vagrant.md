@@ -23,11 +23,11 @@ So the first lot of connection details are easy. These are the mysql details tha
 
 Now we've done that we need to go to the command line and get some SSH details. Get to your project root and type:
 
-`$ vagrant ssh-config`
+    $ vagrant ssh-config
 
 This will give you a list of relevant information.
 
-Simply copy the information for hostname, user and port into the correct fields. The key field can be filled by clicking on the key icon next to the field and navigating to ~/.vagrant-d/insecure_private_key. You might need to click on the Show Hidden Files option and then navigate out and back into your home directory before .vagrant-d directory shows up.
+Simply copy the information for hostname, user and port into the correct fields. The key field can be filled by clicking on the key icon next to the field and navigating to `~/.vagrant-d/insecure_private_key`. You might need to click on the Show Hidden Files option and then navigate out and back into your home directory before .vagrant-d directory shows up.
 
 And that's it. You complete connection window should look a bit like this:
 
